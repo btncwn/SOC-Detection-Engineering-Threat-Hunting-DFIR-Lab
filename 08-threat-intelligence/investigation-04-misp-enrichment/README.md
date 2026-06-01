@@ -1,47 +1,10 @@
-# Investigation 04 – MISP Threat Intelligence Enrichment
-
-## Overview
-
-This investigation extends the findings from Investigation 03 by enriching a suspicious SHA256 hash using MISP.
-
-During Investigation 03, the executable:
-
-```text
-C:\Windows\Temp\hdoor.exe
-```
-
-was identified executing from a temporary directory and performing internal network enumeration.
-
-The investigation extracted the following SHA256 hash:
-
-```text
-99925199059EE049F7AEDA8904C2F5BDFBA86671FD7A5989BD60B72F26EF737C
-```
-
-The objective of this investigation is to determine whether the hash is known to threat intelligence sources, assess its reputation, and demonstrate how MISP can support SOC investigations through indicator enrichment and intelligence-driven analysis.
-
----
-
-## Investigation Hypothesis
-
-A suspicious executable identified during threat hunting may correspond to a known malicious indicator.
-
-Threat intelligence enrichment may provide:
-
-* Additional context
-* Threat attribution
-* Related indicators
-* Detection opportunities
-* Investigation leads
-
-
-
-
 ## Investigation Outcome
 
 Threat intelligence enrichment was performed against indicators collected during Investigation 03.
 
-The SHA256 hash associated with hdoor.exe was searched within MISP after enabling and synchronizing multiple threat intelligence feeds, including:
+During the previous investigation, hdoor.exe was identified executing from a temporary directory, launched by PowerShell, and performing internal network enumeration activity.
+
+To determine whether the observed indicator was known to external threat intelligence sources, the extracted SHA256 hash was searched within MISP after enabling and synchronizing the following feeds:
 
 * CIRCL OSINT Feed
 * Botvrij.eu OSINT Feed
@@ -56,11 +19,13 @@ No matching events, attributes, malware families, campaigns, or threat actor ref
 
 ### Assessment
 
-The absence of matches across multiple threat intelligence sources indicates that the observed indicator was not present within the synchronized MISP intelligence feeds at the time of investigation.
+The absence of threat intelligence matches indicates that the investigated indicators were not present within the synchronized intelligence sources available at the time of analysis.
 
-This does not indicate that the executable is benign. Instead, it demonstrates a common investigative scenario in which threat intelligence enrichment does not provide attribution or reputation data for an observed indicator.
+This result does not indicate that the executable is benign. Instead, it highlights an important investigative scenario in which threat intelligence enrichment does not provide attribution or reputation information for an observed indicator.
 
-As a result, the investigation relied on behavioral evidence collected during Investigation 03, including:
+Because no intelligence matches were identified, the investigation relied on behavioral evidence collected during Investigation 03.
+
+Key observations included:
 
 * Encoded PowerShell execution
 * Execution from a temporary directory
@@ -68,32 +33,28 @@ As a result, the investigation relied on behavioral evidence collected during In
 * Network service discovery activity
 * SMB and SSH connectivity
 
-### Analyst Conclusion
+The combination of these behaviors remains consistent with suspicious reconnaissance and discovery activity despite the absence of threat intelligence matches.
 
-No threat intelligence matches were identified for the investigated hash or filename.
+---
 
-Behavioral telemetry remains the primary basis for assessing hdoor.exe as suspicious.
+## Investigation Artifacts
 
-This investigation demonstrates that threat intelligence enrichment supports investigative workflows but should not be considered a replacement for endpoint, process, and network analysis.
+| Artifact                 | Description                              |
+| ------------------------ | ---------------------------------------- |
+| README.md                | Investigation overview and analysis      |
+| findings.md              | Detailed investigative findings          |
+| spl-searches.md          | IOC searches performed within MISP       |
+| 01-misp-feed-enabled.png | Threat intelligence feed synchronization |
+| 02-misp-hash-search.png  | IOC search results within MISP           |
 
+---
 
-## Investigation Outcome
+## Analyst Conclusion
 
-Threat intelligence enrichment was performed against indicators collected during Investigation 03.
+Threat intelligence enrichment did not identify any known associations for the investigated hash or filename.
 
-The SHA256 hash associated with hdoor.exe was searched within MISP following synchronization of the CIRCL OSINT feed.
+While MISP did not provide additional attribution, the enrichment process successfully validated the indicators against multiple external intelligence sources.
 
-Additional searches were performed using:
+The findings demonstrate that threat intelligence should be used to support investigations rather than replace endpoint, process, and network analysis.
 
-* hdoor.exe
-* hdoor
-
-No matching events, attributes, malware families, or threat actor references were identified.
-
-As a result, no threat intelligence attribution could be established for the observed executable.
-
-The investigation therefore relied on behavioral evidence collected through Sysmon, Cisco NVM telemetry, and Splunk analysis.
-
-The absence of threat intelligence matches does not indicate benign activity. Instead, the executable should be treated as an unknown indicator requiring behavioral analysis and continued monitoring.
-
-
+Behavioral telemetry collected during Investigation 03 remains the primary basis for assessing hdoor.exe as suspicious and worthy of further investigation in a production environment.

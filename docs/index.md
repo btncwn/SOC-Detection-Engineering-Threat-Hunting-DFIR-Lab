@@ -1,14 +1,38 @@
-# Turhan Acar – SOC Analyst Portfolio
+# Turhan Acar
 
-Welcome to my SOC Detection Engineering, Threat Hunting, DFIR, and Threat Intelligence portfolio.
+## SOC Analyst | Threat Hunter | Detection Engineering | DFIR
 
-This site documents hands-on cybersecurity projects using Splunk, Sysmon, MISP, threat hunting workflows, detection engineering, DFIR methodology, and future SOAR automation.
+Welcome to my cybersecurity portfolio.
 
-## Main Project
+This website documents hands-on security projects focused on:
 
-[SOC Detection Engineering, Threat Hunting & DFIR Lab](../README.md)
+* Threat Hunting
+* Detection Engineering
+* Threat Intelligence
+* DFIR
+* Splunk
+* Sysmon
+* MISP
+* Sigma
+* SOAR Automation
 
-## Portfolio Sections
+## About
+
+[About Me](about.md)
+
+## Certifications
+
+[Certifications](certifications.md)
+
+## Projects
+
+[Projects](projects.md)
+
+## Current Lab
+
+SOC Detection Engineering, Threat Hunting and DFIR Lab
+
+### Portfolio Sections
 
 * Lab Architecture
 * Vulnerability Assessment
@@ -20,35 +44,23 @@ This site documents hands-on cybersecurity projects using Splunk, Sysmon, MISP, 
 * Threat Intelligence
 * DFIR
 * SOC Investigations
-* Detection Engineering with Sigma
+* Detection Engineering
 * SOAR Automation
 
-## Featured Investigations
+## Featured Investigation
 
-### Investigation 03 – PowerShell-Based hdoor.exe Execution and Network Enumeration
+### Investigation 03 – Suspicious hdoor.exe Activity
 
-Behavior-based investigation of encoded PowerShell activity, suspicious executable execution, SHA256 hash analysis, and internal network enumeration.
+Analysis of PowerShell execution, process creation telemetry, SHA256 extraction, network enumeration activity, and threat intelligence enrichment.
 
 ### Investigation 04 – MISP Threat Intelligence Enrichment
 
-Threat intelligence enrichment workflow using MISP, CIRCL OSINT Feed, Botvrij.eu Feed, and IOC validation.
+IOC enrichment using MISP, CIRCL OSINT Feed, Botvrij.eu Feed, and threat intelligence validation workflows.
 
-## Skills Demonstrated
+---
 
-* Splunk SPL
-* Sysmon Analysis
-* Threat Hunting
-* Threat Intelligence
-* MISP
-* MITRE ATT&CK Mapping
-* DFIR Methodology
-* Detection Engineering
-* SOC Investigation Reporting
-* SOAR Planning
+GitHub Repository:
 
-## GitHub Repository
+https://github.com/btncwn/SOC-Detection-Engineering-Threat-Hunting-DFIR-Lab
 
-This portfolio is based on the full GitHub project:
-
-[SOC Detection Engineering Threat Hunting DFIR Lab](https://github.com/btncwn/SOC-Detection-Engineering-Threat-Hunting-DFIR-Lab)
 

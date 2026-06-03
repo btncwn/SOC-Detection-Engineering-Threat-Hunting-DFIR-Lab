@@ -129,14 +129,21 @@ End-to-end SOC investigations combining telemetry, threat intelligence, and anal
 
 # 11 - Detection Engineering with Sigma
 
-Development and validation of Sigma detection rules.
+Development, conversion, validation, and tuning of Sigma detection rules using real telemetry, threat hunting findings, and threat intelligence analysis.
 
 Projects include:
 
-* PowerShell detections
-* Parent-child process detections
-* Network discovery detections
-* Threat intelligence detections
+* PowerShell Encoded Command Detection
+* Suspicious Parent-Child Process Detection
+* Network Discovery Detection
+* Scheduled Task Persistence Detection
+* Threat Intelligence Driven Detection
+* Sigma Rule Development
+* PySigma Conversion
+* Splunk Detection Validation
+* Detection Tuning
+* MITRE ATT&CK Mapping
+* Behavioral Detection Engineering
 
 ---
 
@@ -157,14 +164,18 @@ Planned projects include:
 
 * Splunk Enterprise
 * Sysmon
-* Windows 11
+* Windows 7
 * Kali Linux
 * Nessus
 * MISP
 * MITRE ATT&CK
-* BOTSv3 Dataset
 * Sigma
+* PySigma
+* BOTSv3 Dataset
 * SOAR Automation
+* Threat Intelligence Analysis
+* Detection Engineering
+
 
 ```
 ```

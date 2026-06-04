@@ -131,7 +131,7 @@ SOAR Automation
 06-threat-hunting
 07-mitre-attack-mapping
 08-threat-intelligence
-09-dfir
+09-incident-response
 10-soc-investigations
 11-detection-engineering-sigma
 12-soar-automation

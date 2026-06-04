@@ -1,10 +1,10 @@
-# SOC Detection Engineering, Threat Hunting & DFIR Lab
+# SOC-IR-Threat-Hunting-Detection-Engineering-SOAR-Lab
 
 ## Overview
 
 This repository documents an end-to-end Security Operations Center (SOC) lab built to simulate a realistic cyber attack lifecycle and demonstrate blue-team security operations.
 
-The project combines vulnerability management, attack simulation, endpoint telemetry collection, SIEM engineering, threat hunting, MITRE ATT&CK mapping, threat intelligence, and digital forensics to provide practical experience across multiple cybersecurity disciplines.
+The project combines vulnerability management, attack simulation, endpoint telemetry collection, SIEM engineering, threat hunting, MITRE ATT&CK mapping, threat intelligence, to provide practical experience across multiple cybersecurity disciplines.
 
 The lab was developed using real telemetry collected from a Windows 7 environment and analyzed through Splunk Enterprise.
 
@@ -65,11 +65,11 @@ The project demonstrates the ability to design, build, troubleshoot, and operate
 * Shuffle SOAR
 * Automated Investigation & Response Workflows
 
-### DFIR & Investigation
+### Incident Response (IR)
 
 * Incident Response Playbooks
 * Endpoint Investigation Workflows
-* Digital Forensics & Evidence Analysis
+
 
 ### Detection Engineering
 
@@ -98,7 +98,7 @@ The project demonstrates the ability to design, build, troubleshoot, and operate
 | Sigma                          | Detection Engineering & Portable Detection Development            |
 | GitHub Pages                   | Cybersecurity Portfolio & Project Documentation                   |
 | SOAR Workflows                 | Security Automation & Playbook Development (In Progress)          |
-| Velociraptor                   | DFIR Investigations (Planned Future Integration)                  |
+|                   |
 
 ---
 
@@ -114,7 +114,7 @@ SOC-Detection-Engineering-Threat-Hunting-DFIR-Lab
 06-threat-hunting
 07-mitre-attack-mapping
 08-threat-intelligence
-09-dfir
+09-incident response
 10-soc-investigations
 11-detection-engineering-sigma
 12-soar-automation
@@ -183,7 +183,7 @@ Mapped Techniques Include:
 * Endpoint Monitoring & Telemetry Analysis
 * Threat Intelligence & IOC Enrichment (MISP)
 * MITRE ATT&CK Mapping
-* Incident Response & DFIR Methodology
+* Incident Response Methodology
 * Security Event Analysis & Correlation
 * PowerShell & Process Analysis
 * Log Collection, Parsing & Forwarding
@@ -195,7 +195,6 @@ Mapped Techniques Include:
 ## Future Enhancements
 * SOAR Playbook Development & Automation
 * Threat Intelligence Automated Enrichment Workflows
-* Velociraptor DFIR Integration
 * Advanced Sigma Detection Engineering Use Cases
 * Splunk Enterprise Security (ES) Use Cases
 * Detection Coverage Expansion Across Additional ATT&CK Techniques

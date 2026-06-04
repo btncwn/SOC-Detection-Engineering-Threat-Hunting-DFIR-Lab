@@ -59,7 +59,8 @@ Examples observed:
 
 The requests originated from external IP addresses and targeted a public-facing AWS EC2 web server.
 
-![Web-Shell Probes](screenshots/01-webshell-probes.png)
+![Web-Shell Probes](01-webshell-probes.png)
+![HTTP Method Analysis](02-http-method-analysis.png)
 
 ---
 
@@ -94,7 +95,6 @@ All observed requests resulted in HTTP 404 responses, indicating the requested r
 No evidence of successful compromise was identified during this investigation.
 
 
-![HTTP Method Analysis](screenshots/02-http-method-analysis.png)
 
 
 ---

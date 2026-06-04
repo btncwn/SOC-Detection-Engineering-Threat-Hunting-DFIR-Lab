@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project is built around a hands-on Security Operations Center (SOC), Threat Hunting, Detection Engineering, Digital Forensics and Incident Response (DFIR), and Threat Intelligence lab environment.
+This project is built around a hands-on Security Operations Center (SOC), Threat Hunting, Detection Engineering, Incident Response , and Threat Intelligence lab environment.
 
 The objective is to simulate real-world security operations by generating telemetry, conducting investigations, developing detections, performing threat intelligence enrichment, and documenting incident response activities.
 
@@ -14,7 +14,7 @@ The objective is to simulate real-world security operations by generating teleme
 * Generate attack telemetry
 * Collect endpoint and network logs
 * Perform threat hunting investigations
-* Conduct DFIR activities
+* Conduct IR activities
 * Develop detection logic
 * Integrate threat intelligence workflows
 * Implement security automation concepts
@@ -111,7 +111,7 @@ Threat Hunting
         ↓
 Threat Intelligence Enrichment
         ↓
-DFIR Investigation
+       IR 
         ↓
 Detection Engineering
         ↓
@@ -144,7 +144,6 @@ SOAR Automation
 * Splunk Administration
 * Threat Hunting
 * Incident Response
-* Digital Forensics
 * Threat Intelligence
 * MITRE ATT&CK Mapping
 * Vulnerability Management

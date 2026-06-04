@@ -22,7 +22,6 @@ Through practical projects involving Splunk, Sysmon, Sigma, PySigma, MISP, MITRE
 * Threat Hunting
 * Incident Response
 * Threat Intelligence
-* Digital Forensics & Incident Response (DFIR)
 * Security Monitoring & SOC Operations
 * MITRE ATT&CK Mapping
 * Sigma & PySigma

@@ -1,23 +1,4 @@
-# Attack Simulation
-
-## SMB Enumeration and Service Discovery
-
-A controlled attack simulation was performed from the Kali Linux attack host against the Windows target system.
-
-### Investigation Evidence
-
-![SMB Enumeration and Service Discovery](screenshots/01-smb-enumeration-and-service-discovery.png)
-
-### Findings
-
-The scan identified SMB-related services exposed on the target system.
-
-### MITRE ATT&CK Mapping
-
-| Technique | ID |
-|------------|------|
-| Network Service Discovery | T1046 |
-| Remote Services | T1021 |# Attack Simulation – SMB Enumeration & Exposure Validation
+# Attack Simulation – SMB Enumeration & Exposure Validation
 
 ## Overview
 
@@ -123,7 +104,7 @@ This activity generated realistic reconnaissance telemetry that can be monitored
 
 ### SMB Enumeration Results
 
-screenshots/smb-enumeration-and-service-discovery.png
+![SMB Enumeration and Service Discovery](screenshots/01-smb-enumeration-and-service-discovery.png)
 
 ---
 

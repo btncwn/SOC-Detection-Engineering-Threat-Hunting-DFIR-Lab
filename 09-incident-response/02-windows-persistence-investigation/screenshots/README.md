@@ -1,227 +1,194 @@
-# Windows-Persistence-Hunting-T1547.001
-MITRE ATT&amp;CK T1547.001 – Registry persistence detection using Atomic Red Team and Python
-<!--
-  Project 1 – Windows Persistence Hunting (T1547.001)
-  Professional GitHub README – fully formatted, no broken sections.
--->
+# Incident Response Investigation 02 – Windows Registry Persistence Detection
 
-# 🔍 Windows Persistence Hunting (T1547.001)
+## Overview
 
-[![MITRE ATT&CK](https://img.shields.io/badge/MITRE%20ATT%26CK-T1547.001-red?logo=mitre&logoColor=white)](https://attack.mitre.org/techniques/T1547/001/)
-[![Atomic Red Team](https://img.shields.io/badge/Atomic%20Red%20Team-1.0-blue)](https://github.com/redcanaryco/atomic-red-team)
-[![Python](https://img.shields.io/badge/Python-3.14-green?logo=python)](https://python.org)
-[![PowerShell](https://img.shields.io/badge/PowerShell-5.1-blue?logo=powershell)](https://learn.microsoft.com/en-us/powershell/)
-[![Windows](https://img.shields.io/badge/Windows-11%20ARM64-0078D6?logo=windows)](https://microsoft.com)
-[![License](https://img.shields.io/badge/License-Educational%20Use%20Only-yellow)](#license)
+This investigation documents the identification and validation of a Windows Registry Run Key persistence mechanism using Atomic Red Team simulation and a custom Python-based persistence hunting tool.
 
-<p align="center">
-  <i>Detect registry‑based persistence on Windows using MITRE T1547.001</i>
-</p>
+The objective was to determine whether persistence artifacts could be established on a Windows endpoint and successfully detected through manual investigation and automated analysis.
 
 ---
 
-## 📖 Table of Contents
+## Scenario
 
-1. [Abstract](#abstract)
-2. [Environment](#environment)
-3. [Attack Simulation](#attack-simulation)
-4. [Hunting & Detection](#hunting--detection)
-5. [Log Analysis](#log-analysis-cysa-focus)
-6. [MITRE ATT&CK Mapping](#mitre-attck-mapping)
-7. [Results & Evidence](#results--evidence)
-8. [Files](#files-in-this-repository)
-9. [Next Steps](#next-steps)
-10. [Author](#author)
+A registry-based persistence technique was simulated using Atomic Red Team (MITRE ATT&CK T1547.001).
+
+The simulation created a Registry Run Key configured to execute automatically during user logon.
+
+An incident response investigation was then conducted to identify the persistence mechanism, validate the registry modification, and assess the effectiveness of the detection process.
 
 ---
 
-## 📌 Abstract
+## Investigation Workflow
 
-This project simulates a **registry‑based persistence** attack (MITRE ATT&CK T1547.001) on Windows 11 ARM64 using **Atomic Red Team**.  
-Detection is performed through:
-
-- ✅ Manual registry inspection  
-- ✅ Automated Python scanning (7 persistence locations)  
-- ✅ Windows Event Log analysis (PowerShell Event ID 4104)
-
-All findings are reproducible and aligned with **log analysis objectives**.
+```text
+Persistence Simulation Executed
+          ↓
+Registry Run Key Created
+          ↓
+Manual Registry Validation
+          ↓
+Automated Persistence Hunting
+          ↓
+Suspicious Entry Identified
+          ↓
+Evidence Exported
+          ↓
+Incident Response Assessment
+```
 
 ---
 
-## 🖥️ Environment
+## Environment
 
-| Component | Specification |
-| :--- | :--- |
-| **Operating System** | VM Windows 11 ARM64 On MacOS UTM|
-| **User Privileges** | Non‑administrator (UAC enabled) |
-| **Network** | Isolated lab environment |
-| **Tools** | Atomic Red Team v1.0, Python 3.14, PowerShell 5.1 |
+| Component        | Specification                                |
+| ---------------- | -------------------------------------------- |
+| Operating System | Windows 11 ARM64 (UTM on macOS)              |
+| User Privileges  | Non-Administrator (UAC Enabled)              |
+| Network          | Isolated Lab Environment                     |
+| Tools            | Atomic Red Team, Python 3.14, PowerShell 5.1 |
 
 ---
 
 ## Attack Simulation
 
-### Atomic Red Team (T1547.001)
+The Atomic Red Team simulation executed MITRE ATT&CK technique:
 
-```powershell
-Import-Module "C:\AtomicRedTeam\invoke-atomicredteam\Invoke-AtomicRedTeam.psd1" -Force
-Invoke-AtomicTest T1547.001 -TestNumbers 1
+```text
+T1547.001
+Boot or Logon Autostart Execution
+Registry Run Keys / Startup Folder
+```
 
-
-## Attack Simulation
-
-### Atomic Red Team (T1547.001)
+PowerShell execution:
 
 ```powershell
 Import-Module "C:\AtomicRedTeam\invoke-atomicredteam\Invoke-AtomicRedTeam.psd1" -Force
 Invoke-AtomicTest T1547.001 -TestNumbers 1
 ```
 
-**What this does:**  
-Adds a registry value under:
+The simulation created a Registry Run Key under:
 
 ```text
 HKCU\Software\Microsoft\Windows\CurrentVersion\Run
-AtomicRedTeam → C:\AtomicRedTeam\...\AtomicRedTeam.exe
 ```
 
-✅ Simulated adversary behaviour successfully.
+which executed automatically when the user logged on.
 
 ---
 
-## 🔍 Hunting & Detection
+## Detection Methodology
 
-### 1. Manual Detection
+### Manual Registry Validation
+
+The Registry Run Key was manually reviewed using:
 
 ```powershell
 reg query HKCU\Software\Microsoft\Windows\CurrentVersion\Run
 ```
 
-**Output:**
+The investigation confirmed the presence of the Atomic Red Team persistence entry.
 
-```text
-HKEY_CURRENT_USER\...\Run
-    AtomicRedTeam    REG_SZ    C:\AtomicRedTeam\...
-```
+### Automated Persistence Hunting
 
-### 2. Automated Python Scanner
+A custom Python persistence scanner was developed to examine:
 
-| Location Type | Number Scanned |
-| :--- | :--- |
-| Registry persistence keys | 7 |
-| Startup folders | 3 |
-| Scheduled tasks | All |
-| Windows services | All |
-| WMI subscriptions | All |
+* Registry Run Keys
+* Registry RunOnce Keys
+* Startup Folders
+* Scheduled Tasks
+* Windows Services
+* WMI Subscriptions
 
-**CSV output extract:**
-
-```csv
-type,location,name,suspicious
-Registry,HKCU\...\Run,Atomic Red Team,True
-```
-
-> `suspicious = True` → **positive detection**
+The scanner successfully identified the persistence artifact and marked it as suspicious.
 
 ---
 
-## Log Analysis Focus
+## Evidence
 
-### PowerShell ScriptBlock Logging (Event ID 4104)
+### Registry Persistence Detection
 
-Without Sysmon, Windows logs still captured the execution:
+![Registry Persistence Detection](screenshots/01-registry-persistence-detection.png)
 
-```powershell
-Get-WinEvent -FilterHashtable @{
-    LogName='Microsoft-Windows-PowerShell/Operational'
-    ID=4104
-} | Where-Object {$_.Message -like "*AtomicRedTeam*"}
-```
-
-**Captured artifact:**  
-`reg add HKCU\...\Run /v AtomicRedTeam /t REG_SZ /d C:\...`
-
-| Event ID | Log Name | Forensic Value |
-| :--- | :--- | :--- |
-| 4104 | PowerShell Operational | Full script block |
-| 4657 | Security (audit enabled) | Registry value change |
-| 4688 | Security | Process creation (`reg.exe`) |
+The Registry Run Key investigation identified a persistence entry associated with the Atomic Red Team simulation.
 
 ---
 
-## 📈 MITRE ATT&CK Mapping
+### Persistence Hunting Results
 
-| Tactic | ID | Technique |
-| :--- | :--- | :--- |
-| **Persistence** | TA0003 | T1547.001 (Boot or Logon Autostart Execution) |
+![Persistence Hunting Results](screenshots/02-persistence-hunting-results.png)
 
----
-
-## 📸 Results & Evidence
-
-| Evidence | Status |
-| :--- | :--- |
-| Manual `reg query` confirms key | ✅ |
-| CSV output shows `suspicious = True` | ✅ |
-| PowerShell Event ID 4104 logged | ✅ |
-
-### Screenshots
-
-<p align="center">
-  <img src="screenshot_registry.png" width="45%" alt="Registry key evidence"/>
-  <img src="screenshot_csv.png" width="45%" alt="CSV suspicious true"/>
-</p>
+The custom Python scanner successfully detected the persistence mechanism and exported the results to a CSV report.
 
 ---
 
-## 📁 Files in This Repository
+## Windows Event Log Analysis
 
-| File | Description |
-| :--- | :--- |
-| `module1_persistence.py` | Python persistence scanner |
-| `persistence_hunt_YYYYMMDD_HHMMSS.csv` | Raw detection output |
-| `screenshot_registry.png` | Registry evidence |
-| `screenshot_csv.png` | CSV output |
-| `README.md` | This document |
+PowerShell ScriptBlock Logging (Event ID 4104) captured the execution of the Atomic Red Team persistence activity.
 
+Relevant event sources included:
 
+| Event ID | Log Source             | Investigation Value         |
+| -------- | ---------------------- | --------------------------- |
+| 4104     | PowerShell Operational | Full Script Block Logging   |
+| 4657     | Security               | Registry Value Modification |
+| 4688     | Security               | Process Creation            |
 
----
-
-
-
-> **⚠️ Platform Note (ARM64):**  
-> Sysmon driver installation encountered compatibility issues on the **Windows 11 ARM64** lab environment (Apple Silicon / UTM).  
-> **Despite this**, the persistence mechanism was still successfully detected using:  
-> - Manual registry inspection  
-> - Native PowerShell ScriptBlock Logging (Event ID 4104)  
-> - Custom Python scanner (7 persistence locations, no Sysmon required)  
->
-> ✅ **The hunting methodology remains fully reproducible and valid on any standard x64 Windows system.**
-
-
-
-
-
-
-
-
-## Next Steps
-
-This is **Project 1** of the **Omega Protocol** — a 10‑project threat hunting series.
-
+The captured artifacts provided additional validation of the persistence activity.
 
 ---
 
-## 👤 Author
+## Key Findings
 
-**Turhan Acar**  
-[![GitHub](https://img.shields.io/badge/GitHub-btn-181717?logo=github)](https://github.com/btncwn)
+### Registry-Based Persistence
 
+A Registry Run Key persistence mechanism was successfully created and validated.
+
+### Automated Detection
+
+The Python hunting tool identified the persistence artifact and generated evidence suitable for investigation and reporting.
+
+### Investigation Validation
+
+Manual registry inspection confirmed the persistence mechanism and validated the automated hunting results.
 
 ---
 
-## 📜 License
+## MITRE ATT&CK Mapping
 
-**Educational Use Only**  
-Do not deploy on production systems without explicit authorisation.
+| Tactic          | Technique                         | ID        |
+| --------------- | --------------------------------- | --------- |
+| Persistence     | Boot or Logon Autostart Execution | T1547.001 |
+| Defense Evasion | Modify Registry                   | T1112     |
+
+---
+
+## Incident Response Assessment
+
+The investigation confirmed successful creation of a Registry Run Key persistence mechanism.
+
+The persistence artifact was identified through both manual validation and automated analysis.
+
+The combination of registry inspection, PowerShell logging, and custom hunting automation provided multiple sources of evidence supporting the investigation findings.
+
+No additional persistence mechanisms were identified during this investigation.
+
+---
+
+## Skills Demonstrated
+
+* Incident Response
+* Persistence Investigation
+* Windows Registry Analysis
+* MITRE ATT&CK Mapping
+* Atomic Red Team Validation
+* Python Security Automation
+* Evidence Collection
+* Windows Event Log Analysis
+
+---
+
+## Key Lesson
+
+> Registry Run Keys remain one of the most common persistence mechanisms used by attackers and should be routinely reviewed during incident response investigations.
+
+This investigation demonstrated how persistence techniques can be identified through registry analysis, PowerShell logging, automated hunting, and evidence validation.

@@ -108,7 +108,15 @@ The ingestion pipeline was validated by confirming:
 * Dashboard population
 
 More than 17,000 Sysmon events were successfully indexed and analyzed.
+## Ingestion Validation
 
+Sysmon telemetry generated on the Windows 7 endpoint was successfully forwarded to Splunk Enterprise using the Splunk Universal Forwarder.
+
+Data ingestion was validated by confirming the presence of Sysmon Operational events within Splunk.
+
+### Evidence
+
+![Splunk Sysmon Ingestion Validation](screenshots/01-splunk-sysmon-ingestion-validation.png)
 ---
 
 ## Detection Engineering Benefits

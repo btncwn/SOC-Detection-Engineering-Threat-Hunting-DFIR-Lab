@@ -48,7 +48,9 @@ The combination of these behaviors remains consistent with suspicious reconnaiss
 | 02-misp-hash-search.png  | IOC search results within MISP           |
 
 ---
+![MISP Feed Enabled](screenshots/01-misp-feed-enabled.png)
 
+![MISP Hash Search](screenshots/02-misp-hash-search.png)
 ## Analyst Conclusion
 
 Threat intelligence enrichment did not identify any known associations for the investigated hash or filename.

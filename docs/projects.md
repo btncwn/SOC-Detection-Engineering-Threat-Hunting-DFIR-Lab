@@ -197,5 +197,4 @@ Projects include:
 * Investigation Automation
 * Python-Based Security Automation
 
----
 

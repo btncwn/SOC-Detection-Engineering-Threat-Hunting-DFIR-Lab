@@ -40,6 +40,41 @@ A hands-on SOC lab focused on vulnerability assessment, attack simulation, endpo
 * Detection Engineering with Sigma
 * SOAR Automation
 
+
+## Key Achievements
+
+✅ Built an end-to-end SOC lab covering Telemetry → Detection → Threat Hunting → Incident Response → Threat Intelligence → SOAR Automation
+
+✅ Deployed and integrated Splunk Enterprise, Sysmon, MISP, Nessus, Docker, and Windows endpoints within a single security monitoring environment
+
+✅ Created and validated Sigma detection rules using PySigma and Splunk
+
+✅ Mapped observed attacker behaviours to MITRE ATT&CK techniques and tactics
+
+✅ Performed Threat Intelligence investigations using MISP and IOC enrichment workflows
+
+✅ Conducted Incident Response investigations including persistence, lateral movement, command and control, and data exfiltration scenarios
+
+✅ Developed SOAR playbooks and security automation workflows using Python and threat intelligence enrichment processes
+
+✅ Produced 30+ technical project write-ups supported by 49+ screenshots, validation artefacts, and investigation evidence
+
+
+
+## Project Journey
+
+Designed and built a complete SOC Detection Engineering, Threat Hunting, Threat Intelligence, and Incident Response lab from the ground up using Splunk Enterprise, Sysmon, Nessus Essentials, MISP, Sigma, and the BOTSv3 dataset.
+
+During the project, multiple technical challenges were encountered and resolved. Initial attempts to forward Windows event logs from a Windows 11 UTM virtual machine to a Splunk Enterprise instance running on macOS were unsuccessful, requiring redesign of the lab architecture. To overcome compatibility and telemetry collection issues, the environment was rebuilt using a dedicated Windows 7 endpoint and a Kali Linux attacker system.
+
+Successfully deployed and configured Sysmon and Splunk Universal Forwarder on legacy Windows infrastructure, generated endpoint telemetry, and validated successful ingestion into Splunk Enterprise for security monitoring and threat hunting activities.
+
+Conducted vulnerability assessments using Nessus Essentials, identified a critical MS17-010 (EternalBlue) exposure, validated the findings through SMB enumeration activities, and analyzed resulting telemetry through Splunk-based investigations.
+
+Developed structured threat hunting investigations covering malicious domains, malware hashes, suspicious PowerShell activity, attacker behaviour analysis, detection engineering, threat intelligence enrichment, and incident response workflows.
+
+The project demonstrates the ability to design, build, troubleshoot, document, and operate an end-to-end SOC environment using real telemetry and industry-standard security technologies.
+
 ## Featured Investigations
 
 ### Investigation 03 – Suspicious hdoor.exe Activity

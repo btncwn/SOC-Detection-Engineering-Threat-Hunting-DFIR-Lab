@@ -2,9 +2,9 @@
 
 ## SOC Analyst | Threat Hunter | Detection Engineering | IR
 
-Welcome to my cybersecurity portfolio. 
+Welcome to my cybersecurity portfolio.
 
-This portfolio documents a hands-on SOC, Incident Response, Threat Hunting, Detection Engineering, Threat Intelligence, and SOAR Automation lab. 
+This portfolio documents a hands-on SOC, Incident Response, Threat Hunting, Detection Engineering, Threat Intelligence, Ransomware Investigation, and Phishing Analysis lab.
 
 This website documents hands-on security projects focused on:
 
@@ -16,15 +16,14 @@ This website documents hands-on security projects focused on:
 * MISP
 * Sigma
 * PySigma
-* SOAR Automation
-
+* Ransomware Investigations
+* Phishing Analysis
 
 ## Current Lab
 
 ### SOC Detection Engineering, Threat Hunting and DFIR Lab
 
-A hands-on SOC lab focused on vulnerability assessment, attack simulation, endpoint telemetry, Splunk ingestion, threat hunting, MITRE ATT&CK mapping, threat intelligence, IR, detection engineering, and SOAR automation.
-
+A hands-on SOC lab focused on vulnerability assessment, attack simulation, endpoint telemetry, Splunk ingestion, threat hunting, MITRE ATT&CK mapping, threat intelligence, incident response, detection engineering, ransomware investigations, and phishing analysis.
 
 ## Portfolio Sections
 
@@ -38,12 +37,11 @@ A hands-on SOC lab focused on vulnerability assessment, attack simulation, endpo
 * Threat Intelligence
 * SOC Investigations
 * Detection Engineering with Sigma
-* SOAR Automation
-
+* Ransomware & Phishing Simulations
 
 ## Key Achievements
 
-✅ Built an end-to-end SOC lab covering Telemetry → Detection → Threat Hunting → Incident Response → Threat Intelligence → SOAR Automation
+✅ Built an end-to-end SOC lab covering Telemetry → Detection → Threat Hunting → Incident Response → Threat Intelligence → Ransomware & Phishing Investigations
 
 ✅ Deployed and integrated Splunk Enterprise, Sysmon, MISP, Nessus, Docker, and Windows endpoints within a single security monitoring environment
 
@@ -53,13 +51,11 @@ A hands-on SOC lab focused on vulnerability assessment, attack simulation, endpo
 
 ✅ Performed Threat Intelligence investigations using MISP and IOC enrichment workflows
 
-✅ Conducted Incident Response investigations including persistence, lateral movement, command and control, and data exfiltration scenarios
+✅ Conducted Incident Response investigations including persistence, lateral movement, command and control, data exfiltration, ransomware, and phishing scenarios
 
-✅ Developed SOAR playbooks and security automation workflows using Python and threat intelligence enrichment processes
+✅ Developed ransomware investigation workflows, phishing triage procedures, IOC enrichment playbooks, and security automation processes using Python and threat intelligence platforms
 
 ✅ Produced 30+ technical project write-ups supported by 49+ screenshots, validation artefacts, and investigation evidence
-
-
 
 ## Project Journey
 
@@ -71,7 +67,7 @@ Successfully deployed and configured Sysmon and Splunk Universal Forwarder on le
 
 Conducted vulnerability assessments using Nessus Essentials, identified a critical MS17-010 (EternalBlue) exposure, validated the findings through SMB enumeration activities, and analyzed resulting telemetry through Splunk-based investigations.
 
-Developed structured threat hunting investigations covering malicious domains, malware hashes, suspicious PowerShell activity, attacker behaviour analysis, detection engineering, threat intelligence enrichment, and incident response workflows.
+Developed structured threat hunting investigations covering malicious domains, malware hashes, suspicious PowerShell activity, attacker behaviour analysis, detection engineering, threat intelligence enrichment, ransomware investigations, phishing triage workflows, and incident response procedures.
 
 The project demonstrates the ability to design, build, troubleshoot, document, and operate an end-to-end SOC environment using real telemetry and industry-standard security technologies.
 
@@ -100,23 +96,23 @@ Transformation of Space Pirates and PlugX RAT threat intelligence into behaviora
 This portfolio demonstrates the full SOC workflow:
 
 Threat Hunting
-      ↓
+↓
 Threat Intelligence
-      ↓
+↓
 Detection Engineering
-      ↓
+↓
 Sigma Rule Development
-      ↓
+↓
 PySigma Conversion
-      ↓
+↓
 Splunk Validation
-      ↓
+↓
 SOC Investigation
-      ↓
-
+↓
+Incident Response
+↓
+Ransomware & Phishing Investigations
 
 Core lesson:
 
 > Hashes change. IPs change. Domains change. Behaviors persist.
-
-
